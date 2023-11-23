@@ -1,0 +1,13 @@
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+}
+.home-posts-feed {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-posts-feed .loader-container {
+  flex-grow: 1;
+}
