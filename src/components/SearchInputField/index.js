@@ -15,14 +15,9 @@ export default function SearchField() {
 
   const submitForm = async event => {
     event.preventDefault()
-    console.log(inputRef.current.value)
     searchRef.current.value = inputRef.current.value
     navigate('/searched-posts')
   }
-
-  // const onChangeInputValue = (event) => {
-  //   searchRef.current.value = event.target.value
-  // }
 
   return (
     <form className="search-form-container" onSubmit={submitForm}>
@@ -31,8 +26,6 @@ export default function SearchField() {
         placeholder="Search Caption"
         className="search-input"
         ref={inputRef}
-        // value={inputValue}
-        // onChange={onChangeInputValue}
       />
       <button
         aria-label="search"
