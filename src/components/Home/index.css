@@ -4,16 +4,10 @@
 }
 .home-posts-feed {
   flex-grow: 1;
-<<<<<<< HEAD
   display: grid;
   gap: 1.7em;
   max-width: 600px;
   margin: 0 auto;
-=======
-  display: flex;
-  flex-direction: column;
-  align-items: center;
->>>>>>> 959160a2a9178eb9bdac3730c5d13f3e969a0236
 }
 .home-posts-feed .loader-container {
   flex-grow: 1;

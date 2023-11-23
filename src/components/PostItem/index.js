@@ -6,8 +6,7 @@ import './index.css'
 export default function PostItem({postObject}) {
   const [isLiked, setIsLiked] = useState(false)
 
-  const {profilePic, postDetails, userName, likesCount, comments, createdAt} =
-    postObject
+  const {postDetails} = postObject
 
   const {caption, imageUrl} = postDetails
 
@@ -17,9 +16,9 @@ export default function PostItem({postObject}) {
     <div className="post-item-container">
       <div className="user-profile-details">
         <div className="profile-pic-container">
-          <img src={profilePic} alt="profile" />
+          <img src={postObject.profilePic} alt="profile" />
         </div>
-        <p>{userName}</p>
+        <p>{postObject.userName}</p>
       </div>
       <div className="post-image-container">
         <img src={imageUrl} alt="post" />
@@ -42,10 +41,10 @@ export default function PostItem({postObject}) {
           </button>
         </div>
         <div className="post-details-data">
-          <p className="likes-count">{likesCount} likes</p>
+          <p className="likes-count">{postObject.likesCount} likes</p>
           <p>{caption}</p>
-          <DisplayComent comments={comments} />
-          <p className="post-date">{createdAt}</p>
+          <DisplayComent comments={postObject.comments} />
+          <p className="post-date">{postObject.createdAt}</p>
         </div>
       </div>
     </div>

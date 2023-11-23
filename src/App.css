@@ -26,11 +26,7 @@ body {
   min-height: 100dvh;
   display: grid;
   grid-template-columns:
-<<<<<<< HEAD
     [layout-start] 1fr [content-start] min(100%, 800px)
-=======
-    [layout-start] 1fr [content-start] min(100%, 900px)
->>>>>>> 959160a2a9178eb9bdac3730c5d13f3e969a0236
     [content-end] 1fr [layout-end];
   grid-template-rows: auto 1fr;
   overflow: hidden;
@@ -67,7 +63,6 @@ li a {
   place-items: center;
   min-height: 90px;
 }
-<<<<<<< HEAD
 
 .searched-posts-wrapper {
   background-color: white;
@@ -88,5 +83,3 @@ li a {
   max-width: 600px;
   margin: 0 auto;
 }
-=======
->>>>>>> 959160a2a9178eb9bdac3730c5d13f3e969a0236
