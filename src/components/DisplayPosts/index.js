@@ -1,3 +1,7 @@
 export default function DisplyPosts() {
-  return <h1>This is DisplyPosts page</h1>
+  return (
+    <div className="display-posts-container">
+      <h1>This is the posts displaying container</h1>
+    </div>
+  )
 }
