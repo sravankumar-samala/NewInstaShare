@@ -1,0 +1,38 @@
+.slider-container {
+  margin-block: 2em;
+  flex-grow: 0;
+  /* z-index: -2; */
+}
+.story-heading {
+  text-align: center;
+  margin-block: 10px;
+  font-size: clamp(0.7rem, 1vw, 1.1rem);
+}
+
+.slick-slider {
+  margin-inline: 2em;
+}
+
+.slick-next:before,
+.slick-prev:before {
+  color: #000;
+}
+
+.story-container {
+  padding-inline: 10px;
+  display: grid !important;
+  place-items: center;
+}
+.story-container img {
+  aspect-ratio: 1;
+  width: 60px;
+  border-radius: 50%;
+}
+@media screen and (max-width: 400px) {
+  .story-container img {
+    width: 50px;
+  }
+  .story-container {
+    padding: 0;
+  }
+}

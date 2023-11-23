@@ -1,0 +1,14 @@
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+}
+.home-posts-feed {
+  flex-grow: 1;
+  display: grid;
+  gap: 1.7em;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.home-posts-feed .loader-container {
+  flex-grow: 1;
+}
