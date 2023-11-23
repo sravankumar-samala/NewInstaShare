@@ -3,6 +3,9 @@
   border-radius: 10px;
   background-color: white;
 }
+.post-item-container:last-child{
+  margin-bottom: 2em;
+}
 .user-profile-details {
   display: flex;
   align-items: center;
@@ -43,7 +46,7 @@
 }
 .reaction-btn {
   padding: 0;
-  background-color:transparent;
+  background-color: transparent;
 }
 .reaction-btn .like {
   color: #f05161;

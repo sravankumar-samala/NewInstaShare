@@ -12,7 +12,6 @@ export default function SearchedPosts() {
   const searchResults = data ? data.posts : null
 
   useEffect(() => {
-    console.log(searchValue)
     fetchData()
   }, [fetchData, searchValue])
 

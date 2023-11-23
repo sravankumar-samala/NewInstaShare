@@ -2,7 +2,6 @@ import {useEffect} from 'react'
 import useFetch from '../../hooks/customFetchHook'
 import LoadingView from '../LoadingView'
 import PostItem from '../PostItem'
-import convertJsonToJSObj from '../../helpers/convertJsonToJsObject'
 
 export default function HomePostsFeed() {
   const url = 'https://apis.ccbp.in/insta-share/posts'
