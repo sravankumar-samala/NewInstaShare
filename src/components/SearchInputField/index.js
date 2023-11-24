@@ -11,7 +11,7 @@ export default function SearchField() {
   useEffect(() => {
     // This is to make access to header to make search input focus on clicking search link
     searchRef.current = inputRef.current
-  }, [])
+  }, [searchRef])
 
   const submitForm = async event => {
     event.preventDefault()

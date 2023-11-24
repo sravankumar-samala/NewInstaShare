@@ -6,7 +6,7 @@ import './index.css'
 
 export default function Stories() {
   const url = 'https://apis.ccbp.in/insta-share/stories'
-  const {fetchData, data, isPending, error} = useFetch(url)
+  const {fetchData, data, isPending} = useFetch(url)
   const storiesData = data ? data.usersStories : null
 
   useEffect(() => {

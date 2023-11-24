@@ -8,7 +8,7 @@ export default function SearchedPosts() {
   const {searchRef} = useInstaShareContext()
   const searchValue = searchRef.current ? searchRef.current.value : ''
   const baseUrl = `https://apis.ccbp.in/insta-share/posts?search=${searchValue}`
-  const {fetchData, data, isPending, error} = useFetch(baseUrl)
+  const {fetchData, data, isPending} = useFetch(baseUrl)
   const searchResults = data ? data.posts : null
 
   useEffect(() => {
