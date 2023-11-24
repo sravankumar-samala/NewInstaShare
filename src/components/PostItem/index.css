@@ -1,0 +1,69 @@
+.post-item-container {
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+  background-color: white;
+}
+.post-item-container:last-child{
+  margin-bottom: 2em;
+}
+.user-profile-details {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-block: 5px;
+}
+.profile-pic-container {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #e20337, #c60188, #7700c3);
+}
+.profile-pic-container img {
+  aspect-ratio: 1;
+  width: 30px;
+  border-radius: 50%;
+  box-sizing: content-box;
+  border: 2px solid white;
+}
+
+.post-image-container img {
+  min-width: 100%;
+}
+.user-profile-details,
+.post-details-container {
+  padding-inline: 1em;
+}
+.post-details-container {
+  margin-bottom: 1em;
+}
+.post-reactions {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  margin-top: 1em;
+}
+.reaction-btn {
+  padding: 0;
+  background-color: transparent;
+}
+.reaction-btn .like {
+  color: #f05161;
+}
+.reaction-btn svg {
+  max-width: 22px;
+  min-width: 20px;
+  height: auto; /* To maintain aspect ratio */
+}
+.post-details-data p {
+  margin-block: 10px;
+}
+
+.likes-count,
+.commented-user-name {
+  font-weight: 600;
+}
+.post-date {
+  color: #989898;
+}
