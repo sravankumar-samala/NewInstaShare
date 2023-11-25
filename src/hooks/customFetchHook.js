@@ -29,10 +29,10 @@ export default function useFetch(fetchUrl, method = 'GET') {
         const fetchedData = await response.json()
         if (!response.ok) throw new Error(fetchedData.error_msg)
 
-        const responseToken = fetchedData.jwt_token
-        if (responseToken !== undefined) {
-          Cookies.set('jwt_token', responseToken, {expires: 30})
-        }
+        // const responseToken = fetchedData.jwt_token
+        // if (responseToken !== undefined) {
+        //   Cookies.set('jwt_token', responseToken, {expires: 30})
+        // }
 
         const updatedData = convertJsonToJSObj(fetchedData)
         setData(updatedData)

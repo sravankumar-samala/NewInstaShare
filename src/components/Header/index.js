@@ -1,5 +1,5 @@
 import {useRef} from 'react'
-import {NavLink, useNavigate, useLocation} from 'react-router-dom'
+import {Link, useHistory, useLocation} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {useInstaShareContext} from '../../context/instaShareContext'
@@ -9,8 +9,9 @@ import './index.css'
 export default function Header() {
   const {searchRef} = useInstaShareContext()
   const navRef = useRef()
-  const navigate = useNavigate()
+  const history = useHistory()
   const location = useLocation()
+  const currLocation = location.pathname.split('/')[1]
 
   const toggleNavbar = e => {
     navRef.current.classList.toggle('active')
@@ -21,40 +22,37 @@ export default function Header() {
 
   const logout = () => {
     Cookies.remove('jwt_token')
-    navigate('/login')
+    history.replace('/login')
   }
 
   return (
     <div className="layout-container header-wrapper">
       <div className="header-container">
-        <NavLink to="/" className="logo">
+        <Link to="/" className="logo">
           <img
             src="https://res-console.cloudinary.com/dug9vpon2/media_explorer_thumbnails/11a226339bec37f7a92edd079101d273/card"
             alt="website logo"
           />
           <span className="logo-text">Insta Share</span>
-        </NavLink>
+        </Link>
         <nav className="nav-container" ref={navRef}>
           <SearchField />
-          <NavLink
-            to="/"
-            className={({isActive}) => (isActive ? 'active-link' : '')}
-          >
+          <Link to="/" className={currLocation === '' ? 'active-link' : ''}>
             Home
-          </NavLink>
-          <NavLink
+          </Link>
+          <Link
             to={location.pathname}
             onClick={toggleNavbar}
             className="search-link"
           >
             Search
-          </NavLink>
-          <NavLink
+          </Link>
+          <Link
             to="/my-profile"
-            className={({isActive}) => (isActive ? 'active-link' : '')}
+            className={currLocation === 'my-profile' ? 'active-link' : ''}
           >
             Profile
-          </NavLink>
+          </Link>
           <button type="button" onClick={logout} className="logout-btn">
             Logout
           </button>

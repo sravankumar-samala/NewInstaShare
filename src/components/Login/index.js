@@ -1,34 +1,62 @@
-import {useRef, useEffect} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useRef, useState} from 'react'
+import {useHistory, Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
-import useFetch from '../../hooks/customFetchHook'
+// import useFetch from '../../hooks/customFetchHook'
 import './index.css'
 
 export default function Login() {
+  const [error, setError] = useState(null)
   const nameRef = useRef('')
   const passwordRef = useRef('')
-  const navigate = useNavigate()
+  const history = useHistory()
 
-  const baseUrl = 'https://apis.ccbp.in/login'
-  const {fetchData, data, error} = useFetch(baseUrl, 'POST')
+  //   const {fetchData, data, error} = useFetch(baseUrl, 'POST')
+
+  const token = Cookies.get('jwt_token')
+  if (token !== undefined) return <Redirect to="/" />
+
+  //   if (data) {
+  //     const {jwtToken} = data
+  //     Cookies.set('jwt_token', jwtToken, {expires: 30})
+  //     history.replace('/')
+  //   }
 
   // Navigates to home route if user already logged in or just logged in.
-  useEffect(() => {
-    const jwtToken = Cookies.get('jwt_token')
-    if (jwtToken !== undefined || data?.jwt_token) {
-      navigate('/', {replace: true})
-    }
-  }, [data, navigate])
+  //   useEffect(() => {
+  //     const jwtToken = Cookies.get('jwt_token')
+  //     if (jwtToken !== undefined || data?.jwt_token) {
+  //       history.replace('/')
+  //     }
+  //   }, [data, history])
 
-  const handleFormSubmit = event => {
+  const handleFormSubmit = async event => {
     event.preventDefault()
 
     const userData = {
       username: nameRef.current.value.trim(),
       password: passwordRef.current.value.trim(),
     }
+    const baseUrl = 'https://apis.ccbp.in/login'
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(userData),
+    }
 
-    fetchData(userData)
+    try {
+      const response = await fetch(baseUrl, options)
+      const data = await response.json()
+      if (!response.ok) throw new Error(data.error_msg)
+
+      const jwtToken = data.jwt_token
+      Cookies.set('jwt_token', jwtToken, {
+        expires: 30,
+      })
+      history.replace('/')
+    } catch (err) {
+      setError(err.message)
+    }
+
+    // await fetchData(userData)
   }
 
   return (
