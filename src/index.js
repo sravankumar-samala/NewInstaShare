@@ -6,11 +6,11 @@ import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
-    <InstaShareContextProvider>
-      <Router>
+    <Router>
+      <InstaShareContextProvider>
         <App />
-      </Router>
-    </InstaShareContextProvider>
+      </InstaShareContextProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root'),
 )
